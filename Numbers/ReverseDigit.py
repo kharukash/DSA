@@ -1,19 +1,18 @@
-# Usine String Slicing
-Time : O(d)
-Space: O(d)
-class Solution:
-    def reverseNumber(self, n):
-        print(int(str(n)[::-1]))
- 
 # Usine List reverse()  
 Time : O(d)
 Space: O(d)     
 class Solution:
-    def reverseNumber(self, n):
-        y = list(str(n))
-        y.reverse()
-        return int("".join(y))
+    def reverse(self, n: int) -> int:
+       neg = n<0
+       n= abs(n)
+       y = list(str(n))
+       y.reverse()
+       rev = int("".join(y))
+       if rev > (2**31 - 1):    #rev should give 0 if > 32-bit signed integer range
+           return 0
+       return -rev if neg else rev
  
+
 # Without list and String   
 Time : O(d)  # loop runs d(digits) times
 Space: O(1)  
@@ -25,7 +24,9 @@ class Solution:
         while n > 0:
             rev = rev * 10 + (n % 10)
             n //= 10
-
+        
+        if rev > (2**31 - 1):
+            return 0
         return -rev if neg else rev
     
 
