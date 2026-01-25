@@ -12,7 +12,7 @@ class Solution:
         
         if n == revhalf or n == revhalf//10:
             return True
-        
+
         return False
         
         
@@ -20,6 +20,7 @@ class Solution:
 # Both Time and Space = O(n)
 class Solution:
     def isPalindrome(self, n):
+        n = abs(n)
         if str(n) == str(n)[::-1]:
             return True  
         else:

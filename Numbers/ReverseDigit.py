@@ -41,7 +41,8 @@ class Solution:
     def reverse(self, n: int) -> int:
         neg = n<0
         n = abs(n)
-        rev = str(n)[::-1]
-        rev = int(rev)
+        rev = int(str(n)[::-1])
         if rev > (2**31)-1:
-            return 0   
+            return 0  
+        else:
+            return -rev if neg else rev
